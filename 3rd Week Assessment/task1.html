@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List Application</title>
+    <link rel="stylesheet" href="styles.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <!-- Adding Jquerys method chaining -->
+    <script>
+        $(document).ready(function(){
+            $("#taskbutton").click(function(){
+                $("#task").slideUp(2000).slideDown(2000);
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- Creating a container for the task -->
+    <div class="container">
+        <h1 class="markquee">Creating a To-Do-List Application</h1>
+        <br>
+        <input type="text" id="task" placeholder="Enter a task">
+        <br>
+        <br>
+    <!-- Adding a button -------------------------->
+            <button id="taskbutton">Click here to view the task</button>
+            <ul id="Tasklist">
+            </ul>
+    </div>
+    <script>
+        // Creating a constant varaiable...
+        const task = document.getElementById("task");
+        const taskbutton = document.getElementById("taskbutton");
+        const TaskList = document.getElementById("Tasklist");
+        // Adding a task......
+        function addTask() {
+            const taskText = task.value.trim();
+            if (taskText !== "") {
+                const taskItem = document.createElement("li");
+                taskItem.className = "task";
+
+                // adding checkbox to the task..................
+                const taskCheckbox = document.createElement("input");
+                taskCheckbox.type = "checkbox";
+                taskCheckbox.className = "task-checkbox";
+
+                const taskTextDiv = document.createElement("div");
+                taskTextDiv.className = "task-text";
+                taskTextDiv.textContent = taskText;
+
+                const deleteButton = document.createElement("button");
+                deleteButton.className = "delete-button";
+                deleteButton.textContent = "Delete";
+
+                deleteButton.addEventListener("click", function () {
+                    taskItem.remove();
+                });
+                taskItem.appendChild(taskCheckbox);
+                taskItem.appendChild(taskTextDiv);
+                taskItem.appendChild(deleteButton);
+
+                TaskList.appendChild(taskItem);
+                task.value = "";
+            }
+        }     
+        taskbutton.addEventListener("click", addTask);
+        task.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                addTask();
+            }
+        });
+    </script>
+</body>
+</html>
