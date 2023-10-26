@@ -1,0 +1,31 @@
+h1,p{
+    text-align:center;
+    font-style: oblique;
+}
+body{
+    background-image:url("background.jpg");
+
+}
+form{
+    text-align:center;
+    background-image:url("formimg.jpg");
+    width:60vw;
+    max-width:500px;
+    min-width:300px;
+    margin:0 auto;
+}
+select{
+    margin:10px 0 0;
+    width:100%;
+    min-height:2em;
+}
+label{
+    display:block;
+    margin:0.5rem 0;
+    text-align:left;
+}
+fieldset{
+    border:none;
+    padding:5px;
+     
+}
