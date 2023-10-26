@@ -1,0 +1,298 @@
+A.BHAVANIREDDY_CSharpWeek5CodingChallenge.txt
+
+--------1::Implement an abstract class "Shape" with abstract methods for calculating area and perimeter-------------
+
+BEGIN:
+
+[Console.cs code]
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace abstractcircle
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Shape[] shapes = new Shape[]//array
+            {
+                new Circle(6.0),
+                new Rectangle(2.0, 2.0),
+                new Triangle(2.0, 3.0, 4.0)
+            };
+            double TotalArea = 0.0;
+            double TotalPerimeter = 0.0;
+
+            foreach (var shape in shapes)
+            {
+                TotalArea += shape.CalculatingArea();
+                TotalPerimeter += shape.CalculatingPerimeter();
+            }
+
+            Console.WriteLine($"The total area of shapes is = {TotalArea}");
+            Console.WriteLine($"The total perimeter of shapes is = {TotalPerimeter}");
+
+        }
+    }
+}
+----------[Class.cs code]----------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace abstractcircle
+{
+        abstract class Shape//abstarct class
+        {
+            public abstract double CalculatingArea();//abstract method for calculating the total area
+            public abstract double CalculatingPerimeter();//abstract method for calculating the total perimeter
+    }
+
+        class Circle : Shape//inherit
+        {
+            public double Radius { get; }
+
+            public Circle(double radius)//parameterized constructor
+            {
+                Radius = radius;
+            }
+
+            public override double CalculatingArea()
+            {
+                return Math.PI * Radius * Radius;
+            }
+
+            public override double CalculatingPerimeter()
+            {
+                return 2 * Math.PI * Radius;
+            }
+        }
+
+        class Rectangle : Shape//inherit
+        {
+            public double Height { get; }
+            public double Width { get; }
+
+            public Rectangle(double width, double height)//parameterixed constructor
+            {
+                Width = width;
+                Height = height;
+            }
+            public override double CalculatingArea()//method1 for are of rectangle
+            {
+                return Height * Width;
+            }
+
+            public override double CalculatingPerimeter()//method 2 for calculating the perimeter of rectangle
+            {
+                return 2 * (Height + Width);
+            }
+        }
+
+        class Triangle : Shape
+        {
+            public double A { get; }
+            public double B { get; }
+            public double C { get; }
+
+            public Triangle(double a, double b, double c)
+            {
+                A = a;
+                B = b;
+                C = c;
+            }
+        public override double CalculatingArea()//method1 for area of triangle
+        {
+            return 0.5 * A + 0.5 * B;//assuming a as length and b as breadth
+        }
+        public override double CalculatingPerimeter()//method2 for perimeter of traingle
+        {
+            return (A + B + C) / 2;
+        }
+    }
+}
+
+END-------1PROBLEM STATEMENT
+
+
+------2Problem Statement :: Create a scenario where you need to model a "Person" class---------------------
+
+BEGIN---2ndCODE
+
+---------------[Program.cs code]-----------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Person
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            var person = new PersonModels()//object intializers
+            {
+                Name = "Abhi",
+                Age = 21,
+                Address = "JubilleHills No:123/456"
+            };
+            person.Driver();
+            person.Study();
+            person.Work();
+        }
+
+    }
+}
+
+[-------class1 code---------]
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Person
+{
+        public class Person
+        {
+            public string Name { get; set; }//properties of a person 
+            public int Age { get; set; }
+            public string Address { get; set; }
+        }
+        public interface IDriver
+        {
+            void Driver();
+        }
+
+        public interface IStudent
+        {
+            void Study();
+        }
+
+        public interface IEmployee
+        {
+            void Work();
+        }
+}
+
+[---------class2 code-------]
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+//using static Person.Interface;
+using System.Xml.Linq;
+
+namespace Person
+{
+    public class PersonModels : Person, IDriver, IStudent, IEmployee
+    {
+        public void Driver()
+        {
+            Console.WriteLine($"The driving one name is {Name}");
+            Console.WriteLine($"The age of the driver is {Age} old");
+            Console.WriteLine($"Address of the driver is {Address}");
+        }
+        public void Study()
+        {
+            Console.WriteLine($"{Name} is currently studying");
+        }
+        public void Work()
+        {
+            Console.WriteLine($"The Working one is {Name}");
+        }
+    }
+
+}
+
+END:2ND PROBLEM STATEMENT
+
+
+----------4thProblem Statement Build a generic collection to manage a library's inventory of books.
+
+BEGIN:-------4thcode
+
+[---------Console.css code-----------]
+
+using System;
+using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace library
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Library library = new Library();
+            while (!false)
+            {
+                Console.WriteLine("Library Management System");
+                Console.WriteLine("1. Add Book");
+                Console.WriteLine("2. Remove Book");
+                Console.WriteLine("3. Search Book");
+                Console.WriteLine("4. Display book");
+                Console.WriteLine("5. Exit");
+                Console.Write("Enter your choice: ");
+                if (int.TryParse(Console.ReadLine(), out int choice))
+                {
+                    switch (choice)
+                    {
+                        case 1:
+                            Console.WriteLine("Enter Title: ");
+                            string title = Console.ReadLine();
+                            Console.WriteLine("Enter Author: ");
+                            string author = Console.ReadLine();
+                            Console.WriteLine("Enter ISBN: ");
+                            string isbn = Console.ReadLine();
+                            Book newBook = new Book { Title = title, Author = author, ISBN = isbn };//object intializer 
+                            library.AddBook(newBook);
+                            break;
+
+                        case 2:
+                            Console.WriteLine("Enter ISBN of the Book to Remove: ");
+                            string removeISBN = Console.ReadLine();
+                            library.RemoveBook(removeISBN);
+                            break;
+
+                        case 3:
+                            Console.WriteLine("Enter Title to Search: ");
+                            string searchTitle = Console.ReadLine();
+                            library.SearchBook(searchTitle);
+                            break;
+                        case 4:
+                            library.Display();
+                            break;
+                        case 5:
+                            Environment.Exit(0);
+                            break;
+                        default:
+                            Console.WriteLine("Invalid choice. Please try again.");
+                            break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Please enter the other choice:");
+                }
+            }
+        }
+    }
+}
+   
+ END:-----------------4th PROBLEM STATEMENT       
+
+
+
+
