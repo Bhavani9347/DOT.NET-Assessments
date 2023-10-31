@@ -1,12 +1,7 @@
-using Microsoft.EntityFrameworkCore;
-using EducationalConsultancies.Data;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<EducationalConsultanciesContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("EducationalConnection") ?? throw new InvalidOperationException("Connection string 'EducationalConnection' not found.")));
 
 var app = builder.Build();
 
