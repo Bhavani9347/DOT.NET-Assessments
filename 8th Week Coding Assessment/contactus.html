@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>   
+    <title>Document</title>
+    <style>
+         body{
+            background-color:cadetblue;
+            /* padding:20px; */
+        }
+        body{
+            background-image: url("formimg1.jpg");
+            width:"100px";
+            height:"100px";
+            text-decoration: none;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        section{
+            float:right;
+        }
+       h1,h2{
+        text-align:center;
+       }
+       fieldset{
+        display:block;
+       }
+       footer{
+        text-align: center;
+       }   
+    </style>
+     <script>
+        function myFunction() {
+          alert("Successfully submitted!");
+        }
+        </script>
+</head>
+<body>
+    <!-- Creating navigation  -->
+    <div class="container-fluid  bg-dark text-white">
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a class="nav-link " href="Home.html">Landing Page</a></li>
+            <li class="nav-item"><a class="nav-link" href="Aboutus.html">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="contactus.html">Contact Us</a></li>
+        </ul>
+    </div> 
+    <div class="container p-5 my-2">
+        <h1><mark>Contact Us </mark></h1>
+        <h1 class="display-1">The Food Page</h1>
+        <p><mark>Brief Introduction about the Page:</mark> Food is the basic necessity of every organism. Food is a substance that we consume 
+            in order to derive energy to run our body and nutrition to grow. All living organisms must have food to survive. It provides nourishment 
+            to our body system and makes sure that it works smoothly. It aids many biological processes inside the body and helps us grow. As much as it is
+             important to have food, it is more important to have healthy food. Healthy food is the one, which provides a well-balanced diet. It gives us 
+             complete nutrition. It consists of food varieties that have maximum nutrients essential for the body. It also intends to provide the right 
+             quantity of every nutrient which is required by the body.
+
+        </p>
+    </div>
+    <div class="container">
+        <h2>Contact Information:</h2>
+        <p><b>Phone Number:</b> 8934289231</p>
+        <p><b>Email address:</b> foodpage@gmail.com</p>
+        <p><b>Physical Address:</b>
+                                 Road Number:2,<br>
+                                 Near Post Office Jubille hills,<br>
+                                 Pincode:50031;<br>
+                                 Hyderabad(Telangana)...
+        </p>
+    </div>                                                              
+    <!-- Contact Form -->
+    <div class="contact-form">
+        <h2>Contact Form</h2>
+        <form id="contactForm" onsubmit="return validateForm(); showSuccessAlert();">
+            <div class="form-group">
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" class="form-control" required>
+            <!-- </div> -->
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="Rating">Rating:</label>
+                <input type="text" id="Rating" name="Rating" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary">
+            </div>
+        </form>
+        <div id="formMessage"></div>
+    </div>
+<!-- adding alert method -->
+    <button onclick="myFunction()">Try it</button>
+        <section>
+         <!-- Creating Submit Buttion -->
+          <input type="text" name="" placeholder="Click here to submit" required>
+          <button type="submit">submit</button>
+        </section>
+        <br>
+        <br>
+        <!-- Adding footer  -->
+        <footer class="bg-dark text-white text-center py-4">
+            <div class="container">
+                <p>&copy;  All Rights Reserved</p>
+            </div>
+        </footer>   
+</body>
+</html>   

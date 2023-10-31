@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Page</title>
+    <link rel="stylesheet" href="styles.css/">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body{
+            background-color:cadetblue;
+            /* padding:20px; */
+        }
+        .card{
+            height: 100%;
+        }
+        
+    </style>
+</head>
+
+    <body>
+        <h1><center>Food Page</center></h1>
+          <!-- Creating navigation  -->
+          <div class="container-fluid  bg-dark text-white">
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a class="nav-link " href="FoodItems.html">FoodItemsPage</a></li>
+                <!-- <li class="nav-item"><a class="nav-link" href="Aboutus.html">About Us</a></li> -->
+                <li class="nav-item"><a class="nav-link" href="contactus.html">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="container">
+            <div class="row">
+                <!-- using cards to display the below part -->
+                <!-- food item1 NON-VEG -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="Kebab.jpg" class="card-img-top" alt="FOOD1">
+                        <div class="card-body">
+                            <h5 class="card-title">ITEM NAME:KEBABS</h5>
+                            <!-- Add a data attribute to store details -->
+                            <p class="card-text" data-price="$10" data-description="Kebab is a Spicy dish of Middle Eastern origin that typically combines small pieces of meat such as lamb or beef with vegetables on a skewer and is then grilled." data-category="Non-Veg">Price: $40</p>
+                            <a href="#" class="btn btn-primary details-button" onclick="showDetails(this)">Details</a>
+                        </div>
+                    </div>
+                </div>
+     
+                <!-- Food2 NON-VEG-->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="biryani.jpg" class="card-img-top" alt="Food2" height="355",width="355">
+                        <div class="card-body">
+                            <h5 class="card-title">ITEM NAME:LOLLY POP BIRYANI</h5>
+                            <!-- Add a data attribute to store details -->
+                            <p class="card-text" data-price="$10" data-description="A tasty dish With a combination of savory chicken and rice dish that includes layers of chicken, rice,." data-category="Non-Veg">Price: $50</p>
+                            <a href="#" class="btn btn-primary details-button" onclick="showDetails(this)">Details</a>
+                        </div>
+                    </div>
+                </div>
+     
+                <!-- Food 3 NON-VEG-->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="Pizza.jpg" class="card-img-top" alt="food 3">
+                        <div class="card-body">
+                            <h5 class="card-title">ITEM NAME:CHICKEN GOLDEN DELIGHT PIZZ</h5>
+                            <!-- Add a data attribute to store details -->
+                            <p class="card-text" data-price="$20" data-description="pizza, dish of Italian origin consisting of a flattened disk of bread dough topped with some combination of olive oil, oregano, chicken" data-category="Non-Veg">Price: $30</p>
+                            <a href="#" class="btn btn-primary details-button" onclick="showDetails(this)">Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- JavaScript function to show details -->
+        <script>
+            function showDetails(button) {
+                const card = button.closest('.card');
+                const title = card.querySelector('.card-title').textContent;
+                const price = card.querySelector('.card-text').getAttribute('data-price');
+                const description = card.querySelector('.card-text').getAttribute('data-description');
+                const category = card.querySelector('.card-text').getAttribute('data-category');
+               
+                alert(`Food Details\nTitle: ${title}\nPrice: ${price}\nDescription: ${description}\nCategory: ${category}`);
+            }
+        </script>
+ </body>
+ </html>

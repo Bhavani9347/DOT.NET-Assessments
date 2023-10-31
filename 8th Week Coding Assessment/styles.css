@@ -1,0 +1,46 @@
+
+    body{
+        background-attachment: fixed;
+        background-image:url("bgimgHome.jpg");
+        background-repeat: no-repeat;
+        background-size:cover;
+        background-position:center; 
+    }
+
+h1{
+    text-align:Center; 
+}
+/* Card styles */
+.card {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+ 
+.card-title {
+    font-weight: 600;
+}
+ 
+.card img {
+    height: 300px;
+    object-fit: cover;
+}
+ 
+.card-body {
+    text-align: center;
+}
+ 
+/* Details button styles */
+.details-button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    transition: background-color 0.3s;
+}
+ 
+.details-button:hover {
+    background-color: #0056b3;
+}
+.card{
+    height: 100px;
+}
